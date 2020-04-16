@@ -16,8 +16,8 @@ jobs:
         - cp -r build/ test
         - mv test/ build/
         - mv build ../
-    - script: # covid19app build
-        - cd ../covid19
+        - echo "excecuting next app"
+        - cd ../covid19 # covid19app build
         - npm i
         - npm run build
         - cp -r build/ covid19
