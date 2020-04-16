@@ -9,6 +9,7 @@ script:
   - npm i
   - npm test
   - npm run build
+  - echo 'react.ajmalaju.com' > public/CNAME
 
 deploy:
   provider: pages
