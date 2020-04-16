@@ -9,12 +9,12 @@ script:
   - npm i
   - npm test
   - npm run build
-  - echo 'react.ajmalaju.com' > public/CNAME
+  - echo 'react.ajmalaju.com' > build/CNAME
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
-  local_dir: test/public
+  local_dir: test/build
   on:
     branch: master
