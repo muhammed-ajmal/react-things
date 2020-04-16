@@ -4,19 +4,30 @@ node_js:
 cache:
   directories:
   - node_modules
-script:
-  - cd test
-  - npm i
-  - npm test
-  - npm run build
-  - echo 'react.ajmalaju.com' > build/CNAME
-  - cp -r build/ test
-  - mv test/ build/
+jobs:
+  include:
+    - stage: home
+      script:
+        - cd test
+        - npm i
+        - npm test
+        - npm run build
+        - echo 'react.ajmalaju.com' > build/CNAME
+        - cp -r build/ test
+        - mv test/ build/
+        - mv build ../
+    - stage: app-1-covid19
+      script:
+        - cd covid19
+        - npm i
+        - npm run build
+        - cp -r build/ covid19
+        - mv covid19 ../build/
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
-  local_dir: test/build
+  local_dir: build
   on:
     branch: master
