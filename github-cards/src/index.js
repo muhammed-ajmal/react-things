@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import AppF from './App/Using-Function';
+
+//import AppF from './App/Using-Function';
+
 import AppAF from './App/Using-Arrow-Func';
+
 ReactDOM.render(
   <React.StrictMode>
     <AppAF title="Github Profile Cards"/>
