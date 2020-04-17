@@ -8,6 +8,7 @@ jobs:
   include:
     - stage: home
       script:
+        - bash ./buildapps/base.sh
         - cd test
         - npm i
         - npm test
@@ -18,7 +19,6 @@ jobs:
         - mv build ../
         - echo "excecuting next app"
         - cd ../covid19 # covid19app build
-        - npm i
         - npm run build
         - cp -r build/ covid19
         - mv covid19 ../build/
