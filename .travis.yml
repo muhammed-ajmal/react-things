@@ -7,7 +7,7 @@ cache:
 jobs:
   include:
     - stage: home
-      react_env: $react_env
+      #react_env: $react_env
       script:
         - bash ./buildapps/env.sh
         - bash ./buildapps/base.sh
