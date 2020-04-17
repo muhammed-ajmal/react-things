@@ -7,7 +7,9 @@ cache:
 jobs:
   include:
     - stage: home
+      react_env: $react_env
       script:
+        - bash ./buildapps/env.sh
         - bash ./buildapps/base.sh
         - bash ./buildapps/test.sh
         - bash ./buildapps/covid19.sh
@@ -17,6 +19,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
+  react_env: $react_env
   local_dir: build
   on:
     branch: master

@@ -1,17 +1,21 @@
 import React from 'react';
 import './App.scss';
+import {db} from '../config';
+
 
 const testData = [
-  {name: "Dan Abramov", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook"},
-  {name: "Sophie Alpert", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu"},
-  {name: "Sebastian Markbåge", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
 ];
 
 
+
+
+
+//testData.map((x,i) => db.ref('/githubProfiles').child(i).set(x));
+//testData.map((x) => db.ref('/githubProfiles').push(x));
 class Card extends React.Component {
   render(){
-    const x = parseInt(this.props.userId);
-    const profileData = testData[x];
+
+    const profileData = this.props
     return(
       <div className="github-profile">
         <img src={profileData.avatar_url} alt ={profileData.name} />
@@ -25,8 +29,36 @@ class Card extends React.Component {
 }
 
 class CardList extends React.Component {
+  constructor() {
+      super()
+      this.state = {
+        dataReady: false
+      }
+    }
+
+      componentDidMount() {
+          db.ref('/githubProfiles').on('value', querySnapShot => {
+            let data = querySnapShot.val() ? querySnapShot.val() : {};
+            data.map((x) => testData.push(x));
+            this.setState({ dataReady: true })
+          });
+
+        }
+
   render(){
-    return testData.map((githubUser,i) => <Card userId={i} key={i}/>);
+    if (this.state.dataReady) {
+      return (
+        testData.map((githubUser,i) => <Card key = {i} {...githubUser}/>)
+      );
+      } else {
+        return (<div className="spinner">
+  <span className="spinner-inner-1"></span>
+  <span className="spinner-inner-2"></span>
+  <span className="spinner-inner-3"></span>
+</div>)
+      }
+
+
   }
 }
 

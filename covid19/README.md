@@ -1,5 +1,11 @@
 # covid19india
 
+[![Build Status](https://travis-ci.org/Ajuajmal/react-things.svg?branch=master)](https://travis-ci.org/Ajuajmal/react-things)
+
+---
+https://react.ajmalaju.com/covid19
+---
+
 <p align="center">
 <img src="https://lh3.googleusercontent.com/c1R9ua5XDaInXNNYEVKs5NzwQ36gYCXi1VJ5kLRxGcDYmyUSJM3dnkzqaPWP_CniaHQbQSr4yQqxmsoEGvGFrWFnBRAVjI4=s2560" width="50%">
 </p>

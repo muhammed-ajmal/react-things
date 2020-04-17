@@ -2,14 +2,7 @@
 [![Build Status](https://travis-ci.org/Ajuajmal/react-things.svg?branch=master)](https://travis-ci.org/Ajuajmal/react-things)
 
 ---
-https://react.ajmalaju.com/
-
 https://react.ajmalaju.com/test
-
-https://react.ajmalaju.com/github-cards
-
-https://react.ajmalaju.com/covid19 (External Projects)
-
 ---
 ## Available Scripts
 
