@@ -6,7 +6,7 @@ pwd
 cd test
 npm i
 npm test
-npm run build
+CI=false npm run build
 echo 'react.ajmalaju.com' > build/CNAME # alternate way put it in public folder
 mv build ../
 #git add updatelog/ *.json

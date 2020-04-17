@@ -5,7 +5,7 @@ echo "starting covid19 application"
 cd covid19 # covid19app build
 npm i
 npm test
-npm run build
+CI=false npm run build
 cp -r build/ covid19
 mv covid19 ../build/
 
