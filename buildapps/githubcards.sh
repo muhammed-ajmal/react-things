@@ -6,6 +6,6 @@ npm i
 npm test
 npm run build
 cp -r build/ github-cards
-mv githubcards ../build/
+mv github-cards ../build/
 
 echo "finish githubcards application"
