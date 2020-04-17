@@ -9,11 +9,7 @@ jobs:
     - stage: home
       script:
         - bash ./buildapps/base.sh
-        - cd test
-        - npm i
-        - npm test
-        - npm run build
-        - echo 'react.ajmalaju.com' > build/CNAME
+        - bash ./buildapps/test.sh
         - cp -r build/ test
         - mv test/ build/
         - mv build ../
