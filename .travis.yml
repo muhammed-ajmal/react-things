@@ -11,6 +11,7 @@ jobs:
         - bash ./buildapps/base.sh
         - bash ./buildapps/test.sh
         - bash ./buildapps/covid19.sh
+        - bash ./buildapps/githubcards.sh
 
 deploy:
   provider: pages
