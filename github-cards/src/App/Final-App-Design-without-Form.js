@@ -10,7 +10,7 @@ const testData = [
 
 class Card extends React.Component {
   render(){
-    const x = parseInt(this.props.userId);
+    const x = parseInt(this.props.cardId);
     const profileData = testData[x];
     return(
       <div className="github-profile">
@@ -26,11 +26,17 @@ class Card extends React.Component {
 
 class CardList extends React.Component {
   render(){
-    return testData.map((githubUser,i) => <Card userId={i} key={i}/>);
+    return (
+      <div>
+      <Card cardId="0" />
+      <Card cardId="1" />
+      <Card cardId="2" />
+      </div>
+    );
   }
 }
 
-class App extends React.Component {
+class AppDwoF extends React.Component {
   render () {
     return (
       <div>
@@ -41,4 +47,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default AppDwoF;
