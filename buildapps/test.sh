@@ -1,7 +1,7 @@
 set -eu
 
 
-pwd
-ls
+cp -r build/ test-app
+mv test-app/ build/test
 
-echo "finish"
+echo "finish test application"

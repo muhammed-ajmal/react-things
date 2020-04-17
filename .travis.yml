@@ -10,14 +10,7 @@ jobs:
       script:
         - bash ./buildapps/base.sh
         - bash ./buildapps/test.sh
-        - cp -r build/ test
-        - mv test/ build/
-        - mv build ../
-        - echo "excecuting next app"
-        - cd ../covid19 # covid19app build
-        - npm run build
-        - cp -r build/ covid19
-        - mv covid19 ../build/
+        - bash ./buildapps/covid19.sh
 
 deploy:
   provider: pages

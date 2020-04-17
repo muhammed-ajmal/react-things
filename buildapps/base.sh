@@ -8,6 +8,7 @@ npm i
 npm test
 npm run build
 echo 'react.ajmalaju.com' > build/CNAME # alternate way put it in public folder
+mv build ../
 #git add updatelog/ *.json
 #set +e  # Grep succeeds with nonzero exit codes to show results.
 #git status | grep 'new file\|modified'
