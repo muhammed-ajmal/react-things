@@ -7,7 +7,6 @@ cache:
 jobs:
   include:
     - stage: home
-      #react_env: $react_env
       script:
         - bash ./buildapps/env.sh
         - bash ./buildapps/base.sh
@@ -19,7 +18,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
-  react_env: $react_env
   local_dir: build
   on:
     branch: master
