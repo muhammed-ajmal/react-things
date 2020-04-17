@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 
 // Here we are passing props params directly
 function AppFP({title}) {

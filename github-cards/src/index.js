@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 
 //import AppF from './App/Using-Function';
 //import AppFP from './App/Using-Func-Dir-Props';
 //import AppAF from './App/Using-Arrow-Func';
+//import AppC from './App/Using-Class';
+//import AppICSS from './App/Using-InlineCSS';
 
-import AppC from './App/Using-Class';
-
+import App from './App/App';
 ReactDOM.render(
   <React.StrictMode>
-    <AppC title="Github Profile Cards"/>
+    <App title="Github Profile Cards"/>
   </React.StrictMode>,
   document.getElementById('root')
 );

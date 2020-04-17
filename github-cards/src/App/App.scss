@@ -1,0 +1,26 @@
+.github-profile {
+	margin: 1rem;
+
+	img {
+		width: 75px;
+	}
+
+	.info {
+		display: inline-block;
+		margin-left: 12px;
+		//position: absolute; or vertical-align:middle; in img (both help to align text right-top side of image)
+
+		.name {
+			font-size: 1.25rem;
+			font-weight: bold;
+		}
+	}
+}
+
+
+.header {
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 2rem;
+}

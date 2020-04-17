@@ -1,13 +1,13 @@
 import React from 'react';
-import './App.scss';
+import './AppCSS-For-Inline.scss';
 
 class Card extends React.Component {
   render(){
     return(
-      <div className="github-profile">
+      <div className="github-profile" style={{ margin:'1rem' }}>
         <img src="https://placehold.it/75" />
-        <div className="info">
-          <div className="name"> Name</div>
+        <div className="info" style={{ display:'inline-block', marginLeft:10 }}>
+          <div className="name" style={{ fontSize:'125%' }}> Name</div>
           <div className="company"> Company</div>
         </div>
       </div>
@@ -15,7 +15,7 @@ class Card extends React.Component {
   }
 }
 
-class App extends React.Component {
+class AppICSS extends React.Component {
   render () {
     return (
       <div>
@@ -26,4 +26,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default AppICSS;
