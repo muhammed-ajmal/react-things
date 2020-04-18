@@ -28,6 +28,15 @@
 	margin-bottom: 2rem;
 }
 
+form {
+	border: thin solid #ddd;
+  background-color: #fbfbfb;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
 $spinner: salmon;
 $background: white;
 $size: 30px;

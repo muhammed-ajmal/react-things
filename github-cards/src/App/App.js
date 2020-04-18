@@ -2,19 +2,13 @@ import React from 'react';
 import './App.scss';
 import {db} from '../config';
 
-
 const testData = [
 ];
-
-
-
-
 
 //testData.map((x,i) => db.ref('/githubProfiles').child(i).set(x));
 //testData.map((x) => db.ref('/githubProfiles').push(x));
 class Card extends React.Component {
   render(){
-
     const profileData = this.props
     return(
       <div className="github-profile">
@@ -30,35 +24,45 @@ class Card extends React.Component {
 
 class CardList extends React.Component {
   constructor() {
-      super()
-      this.state = {
-        dataReady: false
-      }
+    super();
+    this.state = {
+      dataReady: false
     }
-
-      componentDidMount() {
-          db.ref('/githubProfiles').on('value', querySnapShot => {
-            let data = querySnapShot.val() ? querySnapShot.val() : {};
-            data.map((x) => testData.push(x));
-            this.setState({ dataReady: true })
-          });
-
-        }
-
+  }
+  componentDidMount() {
+    db.ref('/githubProfiles').on('value', querySnapShot => {
+      let data = querySnapShot.val() ? querySnapShot.val() : {};
+      data.map((x) => testData.push(x));
+      this.setState({ dataReady: true })
+    });
+  }
   render(){
     if (this.state.dataReady) {
+      return (testData.map((githubUser,i) => <Card key = {i} {...githubUser}/>));
+    } else {
       return (
-        testData.map((githubUser,i) => <Card key = {i} {...githubUser}/>)
+        <div className="spinner">
+          <span className="spinner-inner-1"></span>
+          <span className="spinner-inner-2"></span>
+          <span className="spinner-inner-3"></span>
+        </div>
       );
-      } else {
-        return (<div className="spinner">
-  <span className="spinner-inner-1"></span>
-  <span className="spinner-inner-2"></span>
-  <span className="spinner-inner-3"></span>
-</div>)
-      }
+    }
+  }
+}
 
-
+class Form extends React.Component {
+  render() {
+    return (
+      <form>
+        <input
+          type="text"
+          placeholder="GitHub Username"
+          required
+        />
+        <button> Add Dev </button>
+      </form>
+    );
   }
 }
 
@@ -67,6 +71,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="header">{this.props.title}</div>
+        <Form />
         <CardList />
       </div>
     );
