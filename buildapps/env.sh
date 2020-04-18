@@ -1,6 +1,6 @@
 set -eu
 
-#cd github-cards
+cd github-cards
 
 echo "REACT_APP_apiKey=$fb_gc_apikey" >> .env
 echo "REACT_APP_appId=$fb_gc_appId" >> .env
