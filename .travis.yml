@@ -16,7 +16,7 @@ jobs:
 
 deploy:
   provider: pages
-  cleanup: true
+  cleanup: false
   github_token: $github_token
   local_dir: build
   on:
