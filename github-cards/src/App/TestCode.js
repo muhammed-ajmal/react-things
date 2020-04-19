@@ -18,3 +18,6 @@ componentDidMount() {
     this.setState({ dataReady: true })
   });
 }
+//testData.map((x,i) => db.ref('/githubProfiles').child(i).set(x));
+//testData.map((x) => db.ref('/githubProfiles').push(x));
+//db.ref('githubProfiles/' + childData).remove(); // githubProfiles/Ajuajmal IF THE childData =Ajuajmal DBNAME/one-node

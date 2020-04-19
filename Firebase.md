@@ -51,6 +51,14 @@ ReadDataFromDb(DisplayReadData);
 
 
 ```
+// delete a db entry
+
+db.ref('githubProfiles/' + childData).remove(); // githubProfiles/Ajuajmal IF THE childData =Ajuajmal DBNAME/one-node
+
+
+```
+
+```
 // set db rules
 
 {

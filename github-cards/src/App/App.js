@@ -6,9 +6,12 @@ import axios from 'axios';
 const testData = [
 ];
 
-//testData.map((x,i) => db.ref('/githubProfiles').child(i).set(x));
-//testData.map((x) => db.ref('/githubProfiles').push(x));
+
+
 class Card extends React.Component {
+  deleteData = () => {
+    this.props.deleteData(this.props.login);
+  }
   render(){
     const profileData = this.props
     return(
@@ -17,6 +20,7 @@ class Card extends React.Component {
         <div className="info">
           <div className="name">{profileData.name}</div>
           <div className="company"> {profileData.company}</div>
+          <button onClick={this.deleteData}>Remove</button>
         </div>
       </div>
     );
@@ -24,18 +28,28 @@ class Card extends React.Component {
 }
 
 class CardList extends React.Component {
-  state = this.props.dataStatus
+  state = {
+    dataReady: false,
+    profiles:this.props.profiles,
+  }
+  deleteData = (keyData) => {
+    this.state.profiles.map((user,i) => user.login.toLowerCase() === keyData.toLowerCase() ? testData.splice(i,1):{})
+    db.ref('githubProfiles/' + keyData).remove();
+    this.setState(prevState => ({profiles:testData}))
+  }
+
   componentDidMount() {
     db.ref('/githubProfiles').on('value', querySnapShot => {
       let data = querySnapShot.val() ? querySnapShot.val() : {};
-      Object.entries(data).map((profile) => testData.some( user => user.login.toLowerCase() === profile[1].login.toLowerCase()) ? console.log(testData):testData.push(profile[1]));
+      Object.entries(data).map((profile) => testData.some( user => user.login.toLowerCase() === profile[1].login.toLowerCase()) ? {}:testData.push(profile[1]));
       this.setState({dataReady:true});
     });
   }
+removeUser = () => {console.log("click")}
   // Array [Array ["Raj", Object { name: "Raju" }], Array ["Ajmal", Object { name: "AJU" }]] example DS From above op
   render(){
     if (this.state.dataReady) {
-      return (this.props.profiles.map((githubUser,i) => <Card key = {i} {...githubUser}/>));
+      return (this.state.profiles.map((githubUser,i) => <Card deleteData = {this.deleteData} removeUser={this.removeUser} key = {i} {...githubUser}/>));
     } else {
       return (
         <div className="spinner">
@@ -112,7 +126,7 @@ class Form extends React.Component {
 class App extends React.Component {
   state = {
     profiles: testData,
-    dataReady: false,
+
   };
   addNewProfile = (profileData) => {
     if(!this.state.profiles.some((user) => user.login === profileData.login)){
@@ -123,12 +137,14 @@ class App extends React.Component {
 }
 }
 
+
+
   render () {
     return (
       <div>
         <div className="header">{this.props.title}</div>
         <Form onSubmit={this.addNewProfile} />
-        <CardList profiles={this.state.profiles} dataStatus={this.state}/>
+        <CardList profiles={this.state.profiles} />
       </div>
     );
   }
