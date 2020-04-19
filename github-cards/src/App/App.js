@@ -50,12 +50,22 @@ class CardList extends React.Component {
 }
 
 class Form extends React.Component {
-  state = { userName: '' };
+  state = { userName: '',
+  addData:'',
+};
   handleSubmit = async (event) => {
+    this.setState( prevState => (
+
+      {addData:`fetching ${this.state.userName}`}
+          ));
     event.preventDefault();
     const resp = await axios.get(`https://api.github.com/users/${this.state.userName}`);
     this.props.onSubmit(resp.data);
     db.ref('/githubProfiles').child(resp.data.login).set(resp.data);
+    this.setState( prevState => (
+
+      {addData:''}
+          ));
   };
 
   render() {
@@ -69,10 +79,12 @@ class Form extends React.Component {
           required
         />
         <button> Add Dev </button>
+        <div>{this.state.addData}</div>
       </form>
     );
   }
 }
+
 
 class App extends React.Component {
   state = {
@@ -92,7 +104,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="header">{this.props.title}</div>
-        <Form onSubmit={this.addNewProfile}/>
+        <Form onSubmit={this.addNewProfile} />
         <CardList profiles={this.state.profiles} dataStatus={this.state}/>
       </div>
     );
