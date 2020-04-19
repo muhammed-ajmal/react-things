@@ -28,8 +28,7 @@ class CardList extends React.Component {
   componentDidMount() {
     db.ref('/githubProfiles').on('value', querySnapShot => {
       let data = querySnapShot.val() ? querySnapShot.val() : {};
-      console.log(data);
-      Object.entries(data).map((x) => testData.includes(x) ? testData:testData.push(x[1]));
+      Object.entries(data).map((profile) => testData.some( user => user.login.toLowerCase() === profile[1].login.toLowerCase()) ? console.log(testData):testData.push(profile[1]));
       this.setState({dataReady:true});
     });
   }
@@ -54,6 +53,7 @@ class Form extends React.Component {
   addData:'',
 };
   handleSubmit = async (event) => {
+    db.goOnline();
       event.preventDefault();
     if(!testData.some( user => user.login.toLowerCase() === this.state.userName.toLowerCase())) {
 
