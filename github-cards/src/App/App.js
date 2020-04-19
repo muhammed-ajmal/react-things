@@ -54,18 +54,41 @@ class Form extends React.Component {
   addData:'',
 };
   handleSubmit = async (event) => {
+      event.preventDefault();
+    if(!testData.some( user => user.login.toLowerCase() === this.state.userName.toLowerCase())) {
+
+
     this.setState( prevState => (
 
       {addData:`fetching ${this.state.userName}`}
           ));
-    event.preventDefault();
-    const resp = await axios.get(`https://api.github.com/users/${this.state.userName}`);
-    this.props.onSubmit(resp.data);
+    let resp = undefined;
+    try {
+    resp = await axios.get(`https://api.github.com/users/${this.state.userName}`);
+      this.props.onSubmit(resp.data);
     db.ref('/githubProfiles').child(resp.data.login).set(resp.data);
     this.setState( prevState => (
 
-      {addData:''}
+      {addData:`successfully fetched ${this.state.userName}`}
           ));
+    } catch(err){
+      this.setState( prevState => (
+
+        {addData:`no user found with user id ${this.state.userName}`}
+      ));
+    }
+
+        } else {
+
+          this.setState( prevState => (
+
+            {addData:'user already found'}
+          ));
+        }
+        setTimeout( () => this.setState( prevState => (
+
+          {addData:''}
+        )),8000);
   };
 
   render() {
@@ -79,7 +102,7 @@ class Form extends React.Component {
           required
         />
         <button> Add Dev </button>
-        <div>{this.state.addData}</div>
+        <div className="message">{this.state.addData}</div>
       </form>
     );
   }
