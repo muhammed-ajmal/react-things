@@ -1,20 +1,5 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[![Build Status](https://travis-ci.org/Ajuajmal/react-things.svg?branch=master)](https://travis-ci.org/Ajuajmal/react-things)
-
----
-https://react.ajmalaju.com/
-
-https://react.ajmalaju.com/test
-
-https://react.ajmalaju.com/github-cards
-
-https://react.ajmalaju.com/timer
-
-https://react.ajmalaju.com/counter
-
-https://react.ajmalaju.com/covid19 (External Projects)
-
----
 ## Available Scripts
 
 In the project directory, you can run:
