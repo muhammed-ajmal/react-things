@@ -13,6 +13,7 @@ jobs:
         - bash ./buildapps/test.sh
         - bash ./buildapps/covid19.sh
         - bash ./buildapps/timer.sh
+        - bash ./buildapps/counter.sh
         - bash ./buildapps/githubcards.sh
 
 
