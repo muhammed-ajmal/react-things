@@ -22,7 +22,7 @@ function App() {
       type="text"
       placeholder="input number"
       value = {counter}
-      onChange = { (event) => isNaN(event.target.value) ? setCounter(0):setCounter(event.target.value)}
+      onChange = { (event) => isNaN(event.target.value) ? setCounter(0):setCounter(parseFloat(event.target.value))}
     />
     <button onClick ={()=> {setCounter(0);setRandom(0)}}> reset</button>
     <div>
