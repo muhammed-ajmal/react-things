@@ -24,6 +24,19 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: set env variables
+      run: bash buildapps.sh
+      env:
+        fb_gc_apikey: ${{ secrets.fb_gc_apikey }}
+        fb_gc_appId: ${{ secrets.fb_gc_appId }}
+        fb_gc_authDomain: ${{ secrets.fb_gc_authDomain }}
+        fb_gc_databaseURL: ${{ secrets.fb_gc_databaseURL }}
+        fb_gc_measurementId: ${{ secrets.fb_gc_measurementId }}
+        fb_gc_messagingSenderId: ${{ secrets.fb_gc_messagingSenderId }}
+        fb_gc_projectId: ${{ secrets.fb_gc_projectId }}
+        fb_gc_storageBucket: ${{ secrets.fb_gc_storageBucket }}
+        react_app_homepage: ${{ secrets.react_app_homepage }}
+
     - name: fire it
       run: bash builder.sh
     - name: install firebase
