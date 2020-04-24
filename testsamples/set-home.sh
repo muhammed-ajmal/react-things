@@ -1,8 +1,12 @@
 #!/bin/bash
 
+######################################
+
+#help replace the values in package.json
+#######################################
 set -eu
 #grep -oP "REACT_APP_BASENAME=\K.*" .ev
-
+#help replace the values in package.json
 
 configurer() {
 set +e
