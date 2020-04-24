@@ -24,11 +24,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: cd github-cards
-    - run: npm i
-    - run: npm i firebase-tools
-    - run: npm run build
-    - run: firebase use react-things --token $FIREBASE_TOKEN
-    - run: firebase deploy --only hosting -m "deploy from action" --token $FIREBASE_TOKEN
+    - name: fire it
+      run: |
+        cd github-cards
+        npm i
+        npm i firebase-tools
+        npm run build
+        firebase use react-things --token $FIREBASE_TOKEN
+        firebase deploy --only hosting -m "deploy from action" --token $FIREBASE_TOKEN
       env:
         CI: true
