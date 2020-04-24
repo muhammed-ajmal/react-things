@@ -4,15 +4,23 @@
 ---
 https://react.ajmalaju.com/
 
-https://react.ajmalaju.com/test
+| GithubPages(Travis CI)                    | Vercel(now.sh)                            |
+| -------------                             | -------------                             |
+| https://react.ajmalaju.com/timer          | https://react-things.now.sh/timer         |
+| https://react.ajmalaju.com/counter        | https://react-things.now.sh/counter       |          
+| https://react.ajmalaju.com/github-cards   | https://react-things.now.sh/github-cards  |
 
-https://react.ajmalaju.com/github-cards
 
-https://react.ajmalaju.com/timer
+| Firebase (Github Action)                  | Aws Amplify                                               | 
+| -----                                     | -----------                                               |
+| https://react-things.web.app/timer        | https://master.dakv1g1hd26d4.amplifyapp.com/timer/        |
+| https://react-things.web.app/counter      | https://master.dakv1g1hd26d4.amplifyapp.com/counter/      |
+| https://react-things.web.app/github-cards | https://master.dakv1g1hd26d4.amplifyapp.com/github-cards/ |
 
-https://react.ajmalaju.com/counter
 
-https://react.ajmalaju.com/covid19 (External Projects)
+https://react.ajmalaju.com/covid19 (External Projects- live runs- developed by others)
+
+
 
 ---
 ## Available Scripts
