@@ -10,5 +10,5 @@ echo "REACT_APP_measurementId=$fb_gc_measurementId" >> .env
 echo "REACT_APP_messagingSenderId=$fb_gc_messagingSenderId" >> .env
 echo "REACT_APP_projectId=$fb_gc_projectId" >> .env
 echo "REACT_APP_storageBucket=$fb_gc_storageBucket" >> .env
-
+echo "REACT_APP_BASENAME=$react_app_homepage" >> .env
 echo "Finish the env var set for github cards"
