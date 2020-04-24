@@ -29,9 +29,9 @@ jobs:
     - name: install firebase
       run: npm i -g firebase-tools
     - name: config firebase
-      run: firebase use react-things --token $FIREBASE_TOKEN
+      run: firebase use react-things --token ${{ secrets.FIREBASE_TOKEN }}
     - name: deploy to firebase
-    - run: firebase deploy --only hosting -m "deploy from action" --token $FIREBASE_TOKEN
+      run: firebase deploy --only hosting -m "deploy from action" --token ${{ secrets.FIREBASE_TOKEN }}
       env:
         CI: true
         react_app_homepage: ${{ secrets.react_app_homepage }}
