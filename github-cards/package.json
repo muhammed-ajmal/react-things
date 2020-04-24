@@ -2,7 +2,7 @@
   "name": "github-cards",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://react.ajmalaju.com/github-cards",
+  "homepage": "react_app_homepage",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "bash set-home.sh && react-scripts start",
-    "build": "react-scripts build",
+    "build": "bash set-home.sh && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
