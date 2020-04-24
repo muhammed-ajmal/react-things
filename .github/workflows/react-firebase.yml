@@ -32,7 +32,7 @@ jobs:
       run: firebase use react-things --token ${{ secrets.FIREBASE_TOKEN }}
     - name: deploy to firebase
       run: firebase deploy --only hosting -m "deploy from action" --token ${{ secrets.FIREBASE_TOKEN }}
-    - env:
+      env:
         CI: true
         react_app_homepage: ${{ secrets.react_app_homepage }}
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
