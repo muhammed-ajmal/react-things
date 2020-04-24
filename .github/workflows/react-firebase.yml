@@ -34,3 +34,5 @@ jobs:
         firebase deploy --only hosting -m "deploy from action" --token $FIREBASE_TOKEN
       env:
         CI: true
+        react_app_homepage: ${{ secrets.react_app_homepage }}
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
