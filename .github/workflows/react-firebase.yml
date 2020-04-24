@@ -28,7 +28,7 @@ jobs:
       run: |
         cd github-cards
         npm i
-        npm i firebase-tools
+        npm i -g firebase-tools
         npm run build
         firebase use react-things --token $FIREBASE_TOKEN
         firebase deploy --only hosting -m "deploy from action" --token $FIREBASE_TOKEN
