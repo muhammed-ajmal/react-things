@@ -9,12 +9,8 @@ jobs:
     - stage: home
       script:
         - bash ./buildapps/env.sh
-        - bash ./buildapps/base.sh
-        - bash ./buildapps/test.sh
-        - bash ./buildapps/covid19.sh
-        - bash ./buildapps/timer.sh
-        - bash ./buildapps/counter.sh
-        - bash ./buildapps/githubcards.sh
+        - bash tester.sh
+        - bash builder.sh
 
 
 deploy:

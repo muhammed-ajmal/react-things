@@ -36,7 +36,8 @@ jobs:
         fb_gc_projectId: ${{ secrets.fb_gc_projectId }}
         fb_gc_storageBucket: ${{ secrets.fb_gc_storageBucket }}
         react_app_homepage: ${{ secrets.react_app_homepage }}
-
+    - name: test all apps
+      run : bash tester.sh
     - name: fire it
       run: bash builder.sh
     - name: install firebase
