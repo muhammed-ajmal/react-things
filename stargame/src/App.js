@@ -53,7 +53,7 @@ const StarMatch = () => {
   };
 
   const onNumberClick = (number, currStatus) => {
-    if (currStatus === 'used'){
+    if (gameStatus !=='active' || currStatus === 'used'){
       return;
     }
 
@@ -79,7 +79,7 @@ const StarMatch = () => {
   }
 
   useEffect( () => {
-    if(timer >0){
+    if(timer >0 && availableNums.length > 0){
       const timerId = setTimeout(() => {
         setTimer(timer-1);
       },1000);
