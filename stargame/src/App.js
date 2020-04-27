@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useState, useEffect } from 'react';
 import './App.css';
 
 const StarDisplay = props => {
@@ -24,6 +24,12 @@ const PlayNumber = props => {
 
 const PlayAgain = props => (
   <div className="game-done">
+    <div
+    className="message"
+    style = {{color: props.gameStatus === 'lost' ? 'red' : 'green'}}
+    >
+      {props.gameStatus==='lost' ? 'Game Over' : 'Nice'}
+    </div>
     <button onClick = {props.onClick}> Play Again</button>
   </div>
 );
@@ -32,8 +38,10 @@ const StarMatch = () => {
   const [stars, setStars] = useState(utils.random(1,9));
   const [availableNums, setAvailableNums] = useState(utils.range(1,9));
   const [candidateNums, setCandidateNums] = useState([])
+  const [timer, setTimer] = useState(10);
+
   const candidateAreWrong = utils.sum(candidateNums) > stars;
-  const gameIsDone = availableNums.length === 0;
+  const gameStatus = availableNums.length === 0 ? 'won' :  timer === 0 ? 'lost' : 'active';
   const NumStatus = (number) => {
     if(!availableNums.includes(number)){
       return 'used'
@@ -67,7 +75,17 @@ const StarMatch = () => {
     setStars(utils.random(1,9));
     setAvailableNums(utils.range(1,9));
     setCandidateNums([]);
+    setTimer(10)
   }
+
+  useEffect( () => {
+    if(timer >0){
+      const timerId = setTimeout(() => {
+        setTimer(timer-1);
+      },1000);
+    return () => clearTimeout(timerId);
+  }
+  });
 
   return (
     <div className="game">
@@ -76,15 +94,18 @@ const StarMatch = () => {
       </div>
       <div className="body">
         <div className="left">
-          { !gameIsDone ?
-            <StarDisplay count={stars}/> : <PlayAgain onClick = {resetGame}/>
-          }
+          { gameStatus === 'active' ?
+            <StarDisplay count={stars}/>
+          :
+             <PlayAgain onClick={resetGame} gameStatus={gameStatus}/>
+           }
+
         </div>
         <div className="right">
           <PlayNumber count={stars} CheckStatus={NumStatus} onClick={onNumberClick}/>
         </div>
       </div>
-      <div className="timer"> Time Remaining : 10 </div>
+      <div className="timer"> Time Remaining : {timer} </div>
     </div>
   );
 }
