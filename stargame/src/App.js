@@ -34,11 +34,41 @@ const PlayAgain = props => (
   </div>
 );
 
-const Game = (props) => {
+const useGameState = () => {
   const [stars, setStars] = useState(utils.random(1,9));
   const [availableNums, setAvailableNums] = useState(utils.range(1,9));
   const [candidateNums, setCandidateNums] = useState([])
   const [timer, setTimer] = useState(10);
+  useEffect( () => {
+    if(timer >0 && availableNums.length > 0){
+      const timerId = setTimeout(() => {
+        setTimer(timer-1);
+      },1000);
+    return () => clearTimeout(timerId);
+  }
+  });
+  const setGameState = (newCandidateNums) => {
+    if (utils.sum(newCandidateNums) !== stars ) {
+      setCandidateNums(newCandidateNums);
+    } else {
+      const newAvailableNums = availableNums.filter(n => ! newCandidateNums.includes(n));
+      setStars(utils.randomSumIn(newAvailableNums, 9));
+      setAvailableNums(newAvailableNums);
+      setCandidateNums([]);
+    }
+  };
+  return {stars, availableNums, candidateNums, timer, setGameState}
+};
+
+const Game = (props) => {
+
+  const {
+    stars,
+    availableNums,
+    candidateNums,
+    timer,
+    setGameState,
+  } = useGameState();
 
   const candidateAreWrong = utils.sum(candidateNums) > stars;
   const gameStatus = availableNums.length === 0 ? 'won' :  timer === 0 ? 'lost' : 'active';
@@ -60,26 +90,11 @@ const Game = (props) => {
     const newCandidateNums = currStatus === 'available' ?
       candidateNums.concat(number) : candidateNums.filter(cn => cn !== number);
 
-    if (utils.sum(newCandidateNums) !== stars ) {
-      setCandidateNums(newCandidateNums);
-    } else {
-      const newAvailableNums = availableNums.filter(n => ! newCandidateNums.includes(n));
-      setStars(utils.randomSumIn(newAvailableNums, 9));
-      setAvailableNums(newAvailableNums);
-      setCandidateNums([]);
-    }
-
+    setGameState(newCandidateNums);
   };
 
 
-  useEffect( () => {
-    if(timer >0 && availableNums.length > 0){
-      const timerId = setTimeout(() => {
-        setTimer(timer-1);
-      },1000);
-    return () => clearTimeout(timerId);
-  }
-  });
+
 
   return (
     <div className="game">
