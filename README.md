@@ -5,6 +5,10 @@
 
 [![CircleCI](https://circleci.com/gh/Ajuajmal/react-things.svg?style=svg)](https://circleci.com/gh/Ajuajmal/react-things/)
 
+[![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/ingle/react-things?key=eyJhbGciOiJIUzI1NiJ9.NWVhYzQ3MGVjNWYyMjJkNWQwOTc1ZDZi.D8jMQmHKyoq6obB-7mEBTpEMLJw1LfQZmAAaNte5yoM&type=cf-2)]( https%3A%2F%2Fg.codefresh.io%2Fpipelines%2Freact-things%2Fbuilds%3Ffilter%3Dtrigger%3Abuild~Build%3Bpipeline%3A5eac47cf37d7c84d724b6f38~react-things)
+
+>Above builds and tests done with multiple CI Srvcs , just for testing and understanding purpose.
+
 ---
 https://react.ajmalaju.com/
 
