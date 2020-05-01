@@ -1,7 +1,7 @@
 
 [![Travis Build Status](https://travis-ci.org/Ajuajmal/react-things.svg?branch=master)](https://travis-ci.org/Ajuajmal/react-things)
 
-![react-things-firebase CI](https://github.com/Ajuajmal/react-things/workflows/react-things-firebase%20CI/badge.svg)
+[![react-things-firebase CI](https://github.com/Ajuajmal/react-things/workflows/react-things-firebase%20CI/badge.svg)](https://github.com/Ajuajmal/react-things/actions?query=workflow%3A%22react-things-firebase+CI%22)
 
 ---
 https://react.ajmalaju.com/
