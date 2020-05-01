@@ -7,6 +7,8 @@
 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/ingle/react-things?type=cf-2)]( https://g.codefresh.io/public/accounts/ingle/pipelines/5eac47cf37d7c84d724b6f38)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/122a8d63-5941-4926-866e-c0324b8e9bef/deploy-status)](https://app.netlify.com/sites/eager-blackwell-0dfc84/deploys)
+
 >Above builds and tests done with multiple CI Srvcs , just for testing and understanding purpose.
 
 ---
