@@ -3,6 +3,8 @@
 
 [![react-things-firebase CI](https://github.com/Ajuajmal/react-things/workflows/react-things-firebase%20CI/badge.svg)](https://github.com/Ajuajmal/react-things/actions?query=workflow%3A%22react-things-firebase+CI%22)
 
+[![CircleCI](https://circleci.com/gh/Ajuajmal/react-things/tree/circleci-project-setup.svg?style=svg)](https://circleci.com/gh/Ajuajmal/react-things/)
+
 ---
 https://react.ajmalaju.com/
 
