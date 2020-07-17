@@ -1,6 +1,6 @@
 declare -a apps
 
-apps=('timer' 'counter' 'github-cards' 'stargame')
+apps=('timer' 'counter' 'github-cards' 'stargame' 'parseitplumber')
 
 for app in "${apps[@]}"
 do
