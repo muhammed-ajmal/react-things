@@ -5,11 +5,11 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
-const API_BASE = "https://rapi.ajmalaju.com/v1/file/read/"
+const API_BASE = "https://rapi.ajmalaju.com"
 
 function submitForm(contentType, data, setResponse) {
  axios({
- url: `${API_BASE}/file`,
+ url: `${API_BASE}/v1/file/read/`,
  method: 'POST',
  data: data,
  headers: {
