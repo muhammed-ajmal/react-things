@@ -61,9 +61,9 @@ const RenderRow = (props) =>{
     })
    }
 
-function submitForm(contentType, data, setResponse) {
+function submitForm(contentType, data, endpoint, setResponse) {
  axios({
- url: `${API_BASE}/v1/file/read/`,
+ url: `${API_BASE}${endpoint}`,
  method: 'POST',
  data: data,
  headers: {
@@ -87,8 +87,18 @@ function App() {
  formData.append("req", file);
 
 
- submitForm("multipart/form-data", formData, (msg) => {
+ submitForm("multipart/form-data", formData, '/v1/file/read/',(msg) => {
    console.log(msg.map(x => x["total"] ))
+   setResp(msg);
+ });
+ }
+
+ function uploadWithText_File(){
+ const formData = new FormData();
+ formData.append("req", file);
+
+
+ submitForm("multipart/form-data", formData, '/v1/file/read/table',(msg) => {
    setResp(msg);
  });
  }
@@ -99,13 +109,25 @@ function App() {
  <h2>Upload Form</h2>
  <form>
  <label>
- File
+ CSV Files :
  <input type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
  </label>
 
 
 
  <input type="button" value="Get Data" onClick={uploadWithFormData} />
+
+ </form>
+ <br />
+ <form>
+ <label>
+ Text Files :
+ <input type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
+ </label>
+
+
+
+ <input type="button" value="Get Data" onClick={uploadWithText_File} />
 
  </form>
  <h1>response</h1>
