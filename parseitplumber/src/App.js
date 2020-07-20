@@ -81,29 +81,64 @@ function App() {
  const [file, setFile] = useState(null);
  const [desc, setDesc] = useState("");
  const [resp, setResp] =useState(["",]);
+ const [dataready, setDataready] =useState(null)
 
  function uploadWithFormData(){
+   setDataready("Sending")
  const formData = new FormData();
  formData.append("req", file);
 
 
- submitForm("multipart/form-data", formData, '/v1/file/read/',(msg) => {
+ submitForm("multipart/form-data", formData, '/v1/file/read',(msg) => {
    console.log(msg.map(x => x["total"] ))
    setResp(msg);
+   setDataready(null)
  });
  }
 
  function uploadWithText_File(){
+   setDataready("Sending")
  const formData = new FormData();
  formData.append("req", file);
-
-
  submitForm("multipart/form-data", formData, '/v1/file/read/table',(msg) => {
    setResp(msg);
+   setDataready(null)
  });
  }
 
+if(dataready == 'Sending')
+return (
+<div className="App">
+<h2>Upload Form</h2>
+<form>
+<label>
+CSV Files :
+<input type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
+</label>
 
+
+
+<input type="button" value="Get Data" onClick={uploadWithFormData} />
+
+</form>
+<br />
+<form>
+<label>
+Text Files :
+<input type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
+</label>
+
+
+
+<input type="button" value="Get Data" onClick={uploadWithText_File} />
+
+</form>
+<h1>response</h1>
+ <h6>Loading ...</h6>
+
+</div>
+);
+else
  return (
  <div className="App">
  <h2>Upload Form</h2>
@@ -131,6 +166,7 @@ function App() {
 
  </form>
  <h1>response</h1>
+
 
 <Table data={resp}/>
 
