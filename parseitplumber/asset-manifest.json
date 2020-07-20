@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/parseitplumber/static/css/main.5f361e03.chunk.css",
+    "main.js": "/parseitplumber/static/js/main.eba515ce.chunk.js",
+    "main.js.map": "/parseitplumber/static/js/main.eba515ce.chunk.js.map",
+    "runtime-main.js": "/parseitplumber/static/js/runtime-main.8fa64f73.js",
+    "runtime-main.js.map": "/parseitplumber/static/js/runtime-main.8fa64f73.js.map",
+    "static/js/2.9637565d.chunk.js": "/parseitplumber/static/js/2.9637565d.chunk.js",
+    "static/js/2.9637565d.chunk.js.map": "/parseitplumber/static/js/2.9637565d.chunk.js.map",
+    "index.html": "/parseitplumber/index.html",
+    "precache-manifest.0ebbb096a8c6e79f34c640bddd4320c0.js": "/parseitplumber/precache-manifest.0ebbb096a8c6e79f34c640bddd4320c0.js",
+    "service-worker.js": "/parseitplumber/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/parseitplumber/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.9637565d.chunk.js.LICENSE.txt": "/parseitplumber/static/js/2.9637565d.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/parseitplumber/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8fa64f73.js",
+    "static/js/2.9637565d.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.eba515ce.chunk.js"
+  ]
+}

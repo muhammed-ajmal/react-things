@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/stargame/static/css/main.f68287d7.chunk.css",
+    "main.js": "/stargame/static/js/main.10b93b40.chunk.js",
+    "main.js.map": "/stargame/static/js/main.10b93b40.chunk.js.map",
+    "runtime-main.js": "/stargame/static/js/runtime-main.03f99e99.js",
+    "runtime-main.js.map": "/stargame/static/js/runtime-main.03f99e99.js.map",
+    "static/js/2.bd7d3b8f.chunk.js": "/stargame/static/js/2.bd7d3b8f.chunk.js",
+    "static/js/2.bd7d3b8f.chunk.js.map": "/stargame/static/js/2.bd7d3b8f.chunk.js.map",
+    "index.html": "/stargame/index.html",
+    "precache-manifest.2a2876cec44bbbd898e3704d7c3768b1.js": "/stargame/precache-manifest.2a2876cec44bbbd898e3704d7c3768b1.js",
+    "service-worker.js": "/stargame/service-worker.js",
+    "static/css/main.f68287d7.chunk.css.map": "/stargame/static/css/main.f68287d7.chunk.css.map",
+    "static/js/2.bd7d3b8f.chunk.js.LICENSE.txt": "/stargame/static/js/2.bd7d3b8f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.03f99e99.js",
+    "static/js/2.bd7d3b8f.chunk.js",
+    "static/css/main.f68287d7.chunk.css",
+    "static/js/main.10b93b40.chunk.js"
+  ]
+}
